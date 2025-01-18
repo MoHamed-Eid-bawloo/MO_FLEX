@@ -8,8 +8,7 @@ export default function Favs() {
   const [userReactions, setUserReactions] = useState({});
   const [favoriteMovies, setFavoriteMovies] = useState([]);
   const MovieCard = lazy(() => import("../Components/MovieCard"));
-  const backendURL =
-    import.meta.env.VITE_BACKEND_SERVICE_URL || "http://localhost:5000";
+  const backendURL ="https://mo-flex-mohamed-eids-projects-a6eeb72b.vercel.app"
 
   useEffect(() => {
     const getUserReactions = async () => {
