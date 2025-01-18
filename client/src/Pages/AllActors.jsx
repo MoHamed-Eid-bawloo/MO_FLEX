@@ -1,9 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import ActorViewFallback from "../Components/ActorViewFallBack";
 import { useTmdbAPI } from "../Store/API";
-import ActorView from "../components/ActorView";
-
-// const ActorView = lazy(() => import("../components/ActorView"));
+const ActorView = lazy(() => import("../Components/ActorView"));
 
 const AllActors = () => {
   const [loading, setLoading] = useState(false);
