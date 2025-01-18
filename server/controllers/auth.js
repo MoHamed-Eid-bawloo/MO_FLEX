@@ -3,10 +3,8 @@ import User from "../models/user.js";
 import errorHandler from "../utils/errorHandler.js";
 import jwt from "jsonwebtoken"
 
-const cookieOptions = {
-    httpOnly: true,      
+const cookieOptions = {    
     secure: true,      
-    sameSite: "Lax"    
 };
 
 
