@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./Pages/Login";
 import Layout from "./Pages/Layout";
 import Home from "./Pages/Home";
-import Sign_Up from "./Pages/signUp";
+import Sign_Up from "./Pages/SignUp";
 import ProtectAuth, { ProtectLoginAuth } from "./MidleWare/ProtectAuth";
 import Favs from "./Pages/Favs";
 import AllUpCommingMovies from "./Pages/AllUpCommingMovies";
