@@ -77,7 +77,7 @@ export default function Profile() {
             headers: {
               "Content-Type": "application/json",
             },
-            withCredentials: true,
+            withCredentials: false,
           }
         );
         if (response.status === 200) {
