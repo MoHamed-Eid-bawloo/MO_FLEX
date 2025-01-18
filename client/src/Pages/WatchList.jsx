@@ -8,8 +8,7 @@ export default function Watchlist() {
   const { userData } = useTmdbAPI();
   const [userReactions, setUserReactions] = useState({});
   const [watchlistMovies, setWatchlistMovies] = useState([]);
-  const backendURL =
-    import.meta.env.VITE_BACKEND_SERVICE_URL || "http://localhost:5000";
+  const backendURL ="https://mo-flex-mohamed-eids-projects-a6eeb72b.vercel.app"
 
   useEffect(() => {
     const getUserReactions = async () => {
