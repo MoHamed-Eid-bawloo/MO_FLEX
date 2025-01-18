@@ -6,8 +6,7 @@ import axios from "axios";
 
 export default function Sign_Up() {
   const [loading, setLoading] = useState(false);
-  const backendURL =
-    import.meta.env.VITE_BACKEND_SERVICE_URL || "http://localhost:5000";
+  const backendURL ="https://mo-flex-mohamed-eids-projects-a6eeb72b.vercel.app"
 
   let [type, setType] = useState({
     username: false,
