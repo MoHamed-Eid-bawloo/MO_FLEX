@@ -13,8 +13,8 @@ export default function Profile() {
   const [errorMsg, setErrorMsg] = useState("");
   const imageRef = useRef();
   const navigate = useNavigate();
-  const backendURL =
-    import.meta.env.VITE_BACKEND_SERVICE_URL || "http://localhost:5000";
+  const backendURL ="https://mo-flex-mohamed-eids-projects-a6eeb72b.vercel.app"
+
 
   const [type, setType] = useState({
     username: false,
