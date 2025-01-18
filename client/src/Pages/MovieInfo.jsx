@@ -96,7 +96,7 @@ export default function MovieInfo() {
   const AddFavourite = async () => {
     try {
       const response = await axios.post(
-        `${backendURL}/api/user/addtofavorites/${userData._id}/${movieId}`, {},
+        `${backendURL}/api/user/addtofavorites/${userData?._id}/${movieId}`, {},
         { withCredentials: true }
       );
       if (response.status === 200) {
@@ -123,7 +123,7 @@ export default function MovieInfo() {
   const addToWatchlist = async () => {
     try {
       const response = await axios.post(
-      `  ${backendURL}/api/user/addtowatchlist/${userData._id}/${movieId}`, {},
+      `  ${backendURL}/api/user/addtowatchlist/${userData?._id}/${movieId}`, {},
         { withCredentials: true }
       );
       if (response.status === 200) {
