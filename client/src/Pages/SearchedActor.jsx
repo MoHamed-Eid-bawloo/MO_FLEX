@@ -2,7 +2,7 @@ import { lazy, useEffect, useState } from "react";
 import { useTmdbAPI } from "../Store/API";
 import { useParams } from "react-router-dom";
 import Loader from "../Components/Loader";
-const ActorView = lazy(() => import("../components/ActorView"));
+const ActorView = lazy(() => import("../Components/ActorView"));
 
 const SearchedActor = () => {
   const [loading, setLoading] = useState(false);
