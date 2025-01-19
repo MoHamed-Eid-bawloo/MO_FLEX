@@ -5,46 +5,53 @@ import authRouter from "./routes/auth.js";
 import userRouter from "./routes/user.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+
 dotenv.config();
 
 const app = express();
 
-//middlewares
+// Middlewares
 app.use(express.json({ limit: "30mb" }));
-app.use(cors({
-    origin: ["https://mo-flex-pe7k.vercel.app", "http://localhost:5173"],
-    credentials: true,
-}));
+app.use(
+    cors({
+        origin: ["https://mo-flex-pe7k.vercel.app", "http://localhost:5173"],
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+        credentials: true,
+    })
+);
 app.use(cookieParser());
 
-//routes
+// Routes
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 
+// Error Handling Middleware
 app.use((err, req, res, next) => {
+    console.error("Error:", err.message);
     const statusCode = err.statusCode || 500;
-    const message = err.message || 'internal server error';
-
     res.status(statusCode).json({
         success: false,
         statusCode,
-        message
-    })
-})
+        message: err.message || "Internal server error",
+    });
+});
 
+// Default Route
 app.get("/", (req, res) => {
     res.status(200).json("Movie App Backend");
-})
+});
 
+// Start Server
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
 
 const start = async () => {
     try {
         await connect(MONGO_URI);
-        console.log("Connected to mongodb");
+        console.log("Connected to MongoDB");
         app.listen(PORT, () => {
-            console.log(`server is running on PORT ${PORT}`);
+            console.log(`Server is running on PORT ${PORT}`);
         });
     } catch (err) {
         console.log(err);
