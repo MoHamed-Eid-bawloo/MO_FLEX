@@ -1,17 +1,21 @@
 import jwt from "jsonwebtoken";
 import errorHandler from "./errorHandler.js";
 
-const verifyToken = (req, res, next) => {
+const verifyToken = async (req, res, next) => {
     const token = req.cookies.access_token;
+
     if (!token) {
-        return res.status(401).json({ message: "Access Denied. No token provided." });
+        next(errorHandler(401, "Unauthorized"));
     }
 
-    try {
-        const verified = jwt.verify(token, process.env.TOKEN_SECRET);
-        req.user = verified;
+    jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
+        if (err) {
+            next(403, "Forbidden");
+        }
+
+        req.user = user
         next();
-    } catch (err) {
-        res.status(401).json({ message: "Invalid token." });
-    }
-};
+    })
+}
+
+export default verifyToken;
