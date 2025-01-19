@@ -14,6 +14,7 @@ app.use(express.json({ limit: "30mb" }));
 app.use(cors({
     origin: ["https://mo-flex-pe7k.vercel.app", "http://localhost:5173"],
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
 }));
 app.use(cookieParser());
 
